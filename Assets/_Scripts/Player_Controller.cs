@@ -6,7 +6,7 @@ public class Player_Controller : MonoBehaviour
 {
     //Hello! If you're reading this, I'd like to thank you and everyone over at LSW for the amazing opportunity! :)
     #region Variables
-    float speed = 3f;
+    float speed = 15f;
     Animator anim;
     Rigidbody2D rb;
 
