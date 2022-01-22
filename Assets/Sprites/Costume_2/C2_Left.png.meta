@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb4d5d8dda285e646837d695f5c15635
+guid: a9b13c2d848deb945b10d844152593da
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -152,7 +152,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Base_Backwards_0
+      name: C2_Left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ffc596161925254681250d9ab48888b
-      internalID: -899853917
+      spriteID: d5d2f629c82833f4b88806738f841d43
+      internalID: 182535178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_Backwards_1
+      name: C2_Left_1
       rect:
         serializedVersion: 2
         x: 32
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ff74f97daa10254584a79956546061f
-      internalID: 865696195
+      spriteID: 0402293c340ec5c4ab929f748776f2ea
+      internalID: -778665599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_Backwards_2
+      name: C2_Left_2
       rect:
         serializedVersion: 2
         x: 64
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1692195fac579b4dae33ea2604ec73d
-      internalID: -2063963550
+      spriteID: e0162e7897cc4b941b302d2936ab0b8e
+      internalID: -1374879127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base_Backwards_3
+      name: C2_Left_3
       rect:
         serializedVersion: 2
         x: 96
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d57522453f7d2f469817ddef1c8bb8a
-      internalID: -1992938749
+      spriteID: ff9adb7f20b9f524ab443576522c6684
+      internalID: -1552420482
       vertices: []
       indices: 
       edges: []
@@ -246,10 +246,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Base_Backwards_2: -2063963550
-      Base_Backwards_0: -899853917
-      Base_Backwards_3: -1992938749
-      Base_Backwards_1: 865696195
+      C2_Left_1: -778665599
+      C2_Left_2: -1374879127
+      C2_Left_3: -1552420482
+      C2_Left_0: 182535178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
