@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Controller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //Hello! If you're reading this, I'd like to thank you and everyone over at LSW for the amazing opportunity! :)
     #region Variables
     float speed = 15f;
     Animator anim;
     Rigidbody2D rb;
-
 
     #endregion
 
