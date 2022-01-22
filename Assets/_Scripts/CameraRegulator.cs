@@ -1,12 +1,17 @@
+using System;
 using UnityEngine;
 
 public class CameraRegulator : MonoBehaviour
 {
     [SerializeField] Transform playerLocation;
-    float eastBorder = 70;
-    float westBorder = -70;
-    float southBorder = -74;
-    float cameraDistance = -15;
+    float eastBorder = 60;
+    float westBorder = -60;
+    float southBorder = -69;
+    float northBorder = 69;
+    float cameraDistance = -10;
+
+    float xPos;
+    float yPos;
 
     void Start()
     {
@@ -15,21 +20,9 @@ public class CameraRegulator : MonoBehaviour
 
     void Update()
     {
-        if (playerLocation.position.x > eastBorder)
-        {
-            transform.position = new Vector3(eastBorder, playerLocation.position.y, cameraDistance);
-        }
-        else if (playerLocation.position.x < westBorder)
-        {
-            transform.position = new Vector3(westBorder, playerLocation.position.y, cameraDistance);
-        }
-        else if (playerLocation.position.y < southBorder)
-        {
-            transform.position = new Vector3(playerLocation.position.x, southBorder, cameraDistance);
-        }
-        else
-        {
-            transform.position = new Vector3(playerLocation.position.x, playerLocation.position.y, cameraDistance);
-        }
+        xPos = Mathf.Clamp(playerLocation.position.x, westBorder, eastBorder);
+        yPos = Mathf.Clamp(playerLocation.position.y, southBorder, northBorder);
+
+        transform.position = new Vector3(xPos, yPos, cameraDistance);
     }
 }
