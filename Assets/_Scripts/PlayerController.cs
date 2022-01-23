@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     float speed = 15f;
     Animator anim;
     Rigidbody2D rb;
+    SpriteRenderer renderer;
 
     #endregion
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -46,5 +48,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             anim.SetInteger("Direction", 0);
         }
+
+        renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
     }
 }
