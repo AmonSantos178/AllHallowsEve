@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class InfoBoxManager : MonoBehaviour
 {
     [SerializeField] Text infoBarText;
+    [SerializeField] Image list;
     float interactionDistance = 10f;
     InteractionManager im;
     PlayerController pc;
@@ -13,6 +14,7 @@ public class InfoBoxManager : MonoBehaviour
     void Start()
     {
         infoBarText.text = "This is your information bar. Right-Click something to learn about it!";
+        list.gameObject.SetActive(false);
         im = FindObjectOfType<InteractionManager>();
         pc = FindObjectOfType<PlayerController>();
     }
@@ -21,6 +23,7 @@ public class InfoBoxManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            interactionDistance = 10f;
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
@@ -28,14 +31,16 @@ public class InfoBoxManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                float distance = CheckDistance(new Vector2(hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.y));
+                Vector2 hitLocation = new Vector2(hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.y);
+                float distance = CheckDistance(hitLocation, hit.collider.bounds.size.x);
                 if (distance >= interactionDistance)
                 {
                     infoBarText.text = "That's too far away for me to interact. I should get closer.";
                 }
                 else
                 {
-                    infoBarText.text = "I have interacted with " + hit.collider.gameObject.tag;
+                    //infoBarText.text = "I have interacted with " + hit.collider.gameObject.tag;
+                    ProcessInteraction(hit.collider.gameObject.tag);
                 }
             }
             else
@@ -62,12 +67,22 @@ public class InfoBoxManager : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            list.gameObject.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Q))
+        {
+            list.gameObject.SetActive(false);
+        }
     }
 
-    float CheckDistance(Vector2 location)
+    float CheckDistance(Vector2 location, float sizeX)
     {
         Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
         Debug.Log(Vector2.Distance(playerPosition, location));
+        interactionDistance = Mathf.Clamp((interactionDistance * sizeX) / 13f, 5f, 100f);
         return Vector2.Distance(playerPosition, location);
     }
 
@@ -108,7 +123,7 @@ public class InfoBoxManager : MonoBehaviour
                 {
                     infoBarText.text = "Looks like he's already left home to go play at the party. Great, one less worry!"; return;
                 }
-                else if(im.hasFlowers)
+                else if (im.hasFlowers)
                 {
                     im.hiredBard = true;
                     return;
@@ -163,7 +178,7 @@ public class InfoBoxManager : MonoBehaviour
                 }
                 else return;
             case "Food": return;
-            case "Mayor": infoBarText.text = "No one answered the door. As I suspected, they're both at work."; return;
+            case "Mayor": infoBarText.text = "No one answered the door. They seem to be both at work."; return;
             case "Grave":
                 if (im.scaredDermot)
                 {
@@ -175,7 +190,7 @@ public class InfoBoxManager : MonoBehaviour
                     im.scaredDermot = true;
                     return;
                 }
-                else if(im.hasCandles)
+                else if (im.hasCandles)
                 {
                     im.gravediggerQuest = true;
                     return;
@@ -247,13 +262,8 @@ public class InfoBoxManager : MonoBehaviour
             case "Farm": infoBarText.text = "I shouldn't mess with Mr. Holm's farm. I hear he has some powerful friends."; return;
             case "Graveyard": infoBarText.text = "I'm not digging in there. YOU dig in there. I refuse."; return;
             case "Barrier": infoBarText.text = "If I take one more step, it'll be the farthest away from home I've ever been."; return;
-            case "Water": infoBarText.text = "Sorry, I can't swim. And I don't feel like learning the hard way."; return;
+            case "Water": infoBarText.text = "Sorry, I can't swim, and I don't feel like learning the hard way."; return;
             default: return;
         }
     }
-
-    /*void CheckState(string tag)
-    {
-        im.GiveState(tag);
-    }*/
 }
