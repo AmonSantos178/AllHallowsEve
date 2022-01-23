@@ -12,8 +12,7 @@ public class CostumeManager : MonoBehaviour
     [SerializeField] Text infobarText;
     [SerializeField] Button[] buttons;
     [SerializeField] GameObject[] costumes;
-    //SpriteRenderer[] buttonImages; 
-    Image buttonImages;
+    Image buttonImage;
 
     GameObject equippedCostume;
     GameObject previousCostume;
@@ -37,8 +36,8 @@ public class CostumeManager : MonoBehaviour
         previousCostume = equippedCostume;
         foreach (Button button in buttons)
         {
-            buttonImages = buttons[i].GetComponent<Image>();
-            buttonImages.sprite = costumeImages[i+1];
+            buttonImage = buttons[i].GetComponent<Image>();
+            buttonImage.sprite = costumeImages[i+1];
             //button.gameObject.SetActive(false);
             i++;
         }
@@ -70,11 +69,10 @@ public class CostumeManager : MonoBehaviour
             previousCostume.SetActive(false);
             equippedCostume.SetActive(true);
             previousCostumeIcon = currentCostumeIcon;
-            buttonImages = buttons[index - 1].GetComponent<Image>();
-            currentCostumeIcon = buttonImages.sprite;
-            buttonImages.sprite = previousCostumeIcon;
-            //pc.GG(costumes,index);
-            pc.SetAnimatorActive(equippedCostume.gameObject.tag);
+            buttonImage = buttons[index - 1].GetComponent<Image>();
+            currentCostumeIcon = buttonImage.sprite;
+            buttonImage.sprite = previousCostumeIcon;
+            pc.ProcessTag(equippedCostume.gameObject.tag);
         }
     }
 

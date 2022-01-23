@@ -2170,7 +2170,7 @@ GameObject:
   - component: {fileID: 663511768}
   m_Layer: 0
   m_Name: Barriers
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3164,6 +3164,7 @@ GameObject:
   - component: {fileID: 970613238}
   - component: {fileID: 970613239}
   - component: {fileID: 970613240}
+  - component: {fileID: 970613241}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3304,6 +3305,18 @@ MonoBehaviour:
   - {fileID: 425713082}
   - {fileID: 1708360103}
   - {fileID: 1437032140}
+--- !u!114 &970613241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970613233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59695a94b504e544aa41e066c65de61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089624732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,7 +4165,7 @@ GameObject:
   - component: {fileID: 1413997155}
   m_Layer: 0
   m_Name: Water Collider
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4576,7 +4589,7 @@ GameObject:
   - component: {fileID: 1437032142}
   m_Layer: 0
   m_Name: Player_C5
-  m_TagString: C5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

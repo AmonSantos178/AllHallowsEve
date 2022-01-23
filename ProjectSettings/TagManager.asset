@@ -28,6 +28,8 @@ TagManager:
   - C3
   - C4
   - C5
+  - Barrier
+  - Water
   layers:
   - Default
   - TransparentFX

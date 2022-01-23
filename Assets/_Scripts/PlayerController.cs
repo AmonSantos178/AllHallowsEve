@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     float speed = 15f;
     Animator anim;
     Rigidbody2D rb;
-    SpriteRenderer renderer;
+    SpriteRenderer rndr;
     [SerializeField] GameObject[] costumes;
     int i;
 
@@ -18,13 +18,12 @@ public class PlayerController : MonoBehaviour
         i = 0;
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
-        GG(0);
+        rndr = GetComponentInChildren<SpriteRenderer>();
+        SetAnimatorActive(0);
     }
 
     void Update()
     {
-        //Here, i've separately programmed each key, as to avoid diagonal movement so that the animation matches    
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = new Vector3(0, speed, 0);
@@ -53,12 +52,11 @@ public class PlayerController : MonoBehaviour
             anim.SetInteger("Direction", 0);
         }
 
-        renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
+        rndr.sortingOrder = (int)(rndr.transform.position.y * -100);
     }
 
-    public void GG(int index)
+    void SetAnimatorActive(int index)
     {
-        //costumes = costumeArray;
         i = 0;
         foreach (GameObject go in costumes)
         {
@@ -73,20 +71,25 @@ public class PlayerController : MonoBehaviour
             i++;
         }
         anim = GetComponentInChildren<Animator>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
+        rndr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void SetAnimatorActive(string tag)
+    public void ProcessTag(string tag)
     {
         switch (tag)
         {
-            case "Base": costumes[0].SetActive(true); GG(0); return;
-            case "C1": costumes[1].SetActive(true); GG(1); return;
-            case "C2": costumes[2].SetActive(true); GG(2); return;
-            case "C3": costumes[3].SetActive(true); GG(3); return;
-            case "C4": costumes[4].SetActive(true); GG(4); return;
-            case "C5": costumes[5].SetActive(true); GG(5); return;
-            default: costumes[0].SetActive(true); GG(0); return;
+            case "Base": costumes[0].SetActive(true); SetAnimatorActive(0); return;
+            case "C1": costumes[1].SetActive(true); SetAnimatorActive(1); return;
+            case "C2": costumes[2].SetActive(true); SetAnimatorActive(2); return;
+            case "C3": costumes[3].SetActive(true); SetAnimatorActive(3); return;
+            case "C4": costumes[4].SetActive(true); SetAnimatorActive(4); return;
+            case "C5": costumes[5].SetActive(true); SetAnimatorActive(5); return;
+            default: costumes[0].SetActive(true); SetAnimatorActive(0); return;
         }
+    }
+
+    public string CheckTag()
+    {
+        return anim.gameObject.tag;
     }
 }
