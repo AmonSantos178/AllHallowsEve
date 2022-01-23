@@ -17,7 +17,7 @@ MonoBehaviour:
   characterName: Sam Astin
   optionOne: Sorry, can't help you.
   optionTwo: Here you go, pick one.
-  itemName: 
+  itemName: Costume
   twoButton: 1
   isEndState: 0
   endsGame: 0

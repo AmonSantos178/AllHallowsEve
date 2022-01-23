@@ -127,20 +127,21 @@ public class InfoBoxManager : MonoBehaviour
                 }
                 else if (im.hasFlowers)
                 {
+                    dm.SetUpDialogue("Bard2");
                     im.hiredBard = true;
                     return;
                 }
-                else return;
+                else
+                    dm.SetUpDialogue("Bard1"); return;
             case "Tesker":
                 if (im.stanQuest)
                 {
-                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gift worked..."; return;
+                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gifts worked..."; return;
                 }
                 else if (im.hasGifts)
                 {
                     im.hasGifts = false;
-                    /*dialogue*/
-                    return;
+                    dm.SetUpDialogue("Emily2"); return;
                 }
                 else if (im.emilyQuest)
                 {
@@ -150,39 +151,37 @@ public class InfoBoxManager : MonoBehaviour
                 {
                     infoBarText.text = "I should deliver her father's lunch before I talk to Emily Again"; return;
                 }
-                else return;
+                else dm.SetUpDialogue("Emily1"); return;
             case "Hobbit":
                 if (im.cheeredMartin)
                 {
-                    infoBarText.text = "Looks like he's left his house for his final adventure."; return;
+                    infoBarText.text = "Looks like he's finally left his house for his final adventure."; return;
                 }
                 else if (pc.CheckTag() == "C2")
                 {
                     im.cheeredMartin = true;
-                    return;
+                    dm.SetUpDialogue("Farmer1"); return;
                 }
                 else
                 {
                     infoBarText.text = "'No, thank you! I don't want any more visitors, well-wishers or distant relations!'"; return;
                 }
-            case "Candy": return;
-            case "Costume": return;
-            case "Decor": return;
+            case "Candy": dm.SetUpDialogue("Candy1"); return;
+            case "Costume": dm.SetUpDialogue("Costum1"); return;
+            case "Decor": dm.SetUpDialogue("Decor1"); return;
             case "Fisherman":
                 if (pc.CheckTag() == "C5")
                 { 
-                    /*dialogue*/
-                    Destroy(fisherman.gameObject);
-                    return;
+                    Destroy(fisherman.gameObject, 3f);
+                    dm.SetUpDialogue("Fish3"); return;
                 }
                 else if (im.hasLunch)
                 {
-                    /*dialogue*/
                     im.emilyQuest = true;
-                    return;
+                    dm.SetUpDialogue("Fish2"); return;
                 }
-                else return;
-            case "Food": return;
+                else dm.SetUpDialogue("Fish1"); return;
+                case "Food": dm.SetUpDialogue("Food1"); return; 
             case "Mayor": infoBarText.text = "No one answered the door. They seem to be both at work."; return;
             case "Grave":
                 if (im.scaredDermot)
@@ -193,22 +192,22 @@ public class InfoBoxManager : MonoBehaviour
                 else if (pc.CheckTag() == "C4")
                 {
                     im.scaredDermot = true;
-                    return;
+                    dm.SetUpDialogue("Grave3"); return;
                 }
                 else if (im.hasCandles)
                 {
                     im.gravediggerQuest = true;
-                    return;
+                    dm.SetUpDialogue("Grave2"); return;
                 }
-                else return;
+                else dm.SetUpDialogue("Grave1"); return;
             case "Hall":
                 if (im.CheckGameCompletion() == true)
                 {
-                    return;
+                    dm.SetUpDialogue("Mayor4"); return;
                 }
                 else
                 {
-                    return;
+                    dm.SetUpDialogue("Mayor2"); return;
                 }
             case "Mom":
                 if (im.momQuest)
@@ -219,9 +218,9 @@ public class InfoBoxManager : MonoBehaviour
                 else if (im.hasEggs)
                 {
                     im.momQuest = true;
-                    return;
+                    dm.SetUpDialogue("Mom2"); return;
                 }
-                else return;
+                else dm.SetUpDialogue("Mom1"); return;
             case "Friend":
                 if (im.friendQuest)
                 {
@@ -231,9 +230,10 @@ public class InfoBoxManager : MonoBehaviour
                 else if (im.hasCostume)
                 {
                     im.friendQuest = true;
-                    return;
+                    dm.SetUpDialogue("Friend2"); return;
                 }
-                else return;
+                else dm.SetUpDialogue("Friend1"); return;
+
             case "Stan":
                 if (im.stanQuest)
                 {
@@ -245,7 +245,7 @@ public class InfoBoxManager : MonoBehaviour
                     infoBarText.text = "I should deliver the gifts before I talk to Stan again.";
                     return;
                 }
-                else return;
+                else dm.SetUpDialogue("Stan1"); return;
             case "Willy":
                 if (im.cheeredWillie)
                 {
@@ -255,14 +255,13 @@ public class InfoBoxManager : MonoBehaviour
                 else if (pc.CheckTag() == "C1")
                 {
                     im.cheeredWillie = true;
-                    return;
+                    dm.SetUpDialogue("Willie3"); return;
                 }
                 else if (im.hasFishySticks)
                 {
-                    im.gravediggerQuest = true;
-                    return;
+                    dm.SetUpDialogue("Willie2"); return;
                 }
-                else return;
+                else dm.SetUpDialogue("Willie1"); return;
 
             case "Empty": infoBarText.text = "I knock, but hear no one. It's probably best to stay away from here."; return;
             case "Farm": infoBarText.text = "I shouldn't mess with Mr. Holm's farm. I hear he has some powerful friends."; return;

@@ -18,7 +18,7 @@ MonoBehaviour:
   characterName: Stan Mason
   optionOne: Can't help you, sorry.
   optionTwo: Sure, anything to help.
-  itemName: 
+  itemName: Gifts
   twoButton: 1
   isEndState: 0
   endsGame: 0

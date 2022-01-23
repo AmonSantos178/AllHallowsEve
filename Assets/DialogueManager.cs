@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -93,24 +91,21 @@ public class DialogueManager : MonoBehaviour
         {
             /*open sell menu*/
         }
+        if (currentLine.endsGame)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
+        }
+        else if (currentLine.isEndState)
+        {
+            Time.timeScale = 1f;
+            panel.SetActive(false);
+        }
         else
         {
-            if (currentLine.endsGame)
-            {
-                Time.timeScale = 1f;
-                SceneManager.LoadScene(0);
-            }
-            else if (currentLine.isEndState)
-            {
-                Time.timeScale = 1f;
-                panel.SetActive(false);
-            }
-            else
-            {
-                var nextScene = currentLine.GetNextLines();
-                currentLine = nextScene[0];
-                ManageScene();
-            }
+            var nextScene = currentLine.GetNextLines();
+            currentLine = nextScene[0];
+            ManageScene();
         }
     }
 
@@ -120,12 +115,15 @@ public class DialogueManager : MonoBehaviour
         {
             /*open buy menu*/
         }
-        else
+        if (currentLine.itemChange)
         {
-            var nextScene = currentLine.GetNextLines();
-            currentLine = nextScene[1];
-            ManageScene();
+            //costume
+            //gold(bard)
+            //gifts
         }
+        var nextScene = currentLine.GetNextLines();
+        currentLine = nextScene[1];
+        ManageScene();
     }
     #endregion
 }

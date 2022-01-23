@@ -24,12 +24,12 @@ MonoBehaviour:
   characterName: Tim Jackson
   optionOne: I'll come back later
   optionTwo: Take my gold
-  itemName: 
+  itemName: Gold
   twoButton: 1
   isEndState: 0
   endsGame: 0
   isStore: 0
-  itemChange: 0
+  itemChange: 1
   nextScenes:
   - {fileID: 11400000, guid: 2dde68642a648114fb98a8105bf555ee, type: 2}
   - {fileID: 11400000, guid: 73da8654e2279df47844fd6fc74141a7, type: 2}

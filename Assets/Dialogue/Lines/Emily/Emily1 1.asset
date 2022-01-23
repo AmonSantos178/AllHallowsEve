@@ -16,11 +16,14 @@ MonoBehaviour:
     Take this bag, It\u2019s my father\u2019s lunch. He forgot it this morning when
     he left to work in the pier."
   characterName: Emily Tesker
-  optionOne: 
+  optionOne: Wait...
   optionTwo: 
+  itemName: 
   twoButton: 0
   isEndState: 0
   endsGame: 0
+  isStore: 0
+  itemChange: 0
   nextScenes:
   - {fileID: 11400000, guid: dc8a87cc82877044ebf8fc8f03d68809, type: 2}
   backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
