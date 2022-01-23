@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Fisherman3 1
+  m_EditorClassIdentifier: 
+  dialogue: "What do you wa\u2026 OH NO! THE LEGENDS ARE REAL! THE DEEP ONES, THEY
+    EXIST! AND THEY CAME FOR ME! THEY CAME FOR ALL OF US! SAVE YOURSELVES!!!\n"
+  characterName: Anderson Tesker
+  optionOne: What the hell?
+  optionTwo: 
+  twoButton: 0
+  isEndState: 1
+  endsGame: 0
+  nextScenes: []
+  backdrop: {fileID: 21300000, guid: 5b23d7d943cd0cc4eae93830bff15ded, type: 3}
+  characterSprite: {fileID: 21300000, guid: 48c1e008326a2214994b83d635a99ba8, type: 3}

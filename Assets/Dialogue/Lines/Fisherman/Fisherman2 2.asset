@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Fisherman2 2
+  m_EditorClassIdentifier: 
+  dialogue: "Oh really? Did Emily send you? Thank god, I didn\u2019t even realize
+    I left it at home. You saved my day. Here, have a few coins as a token of my
+    appreciation. Now, if you\u2019ll excuse me, these fish won\u2019t spear themselves."
+  characterName: Anderson Tesker
+  optionOne: Have a good one!
+  optionTwo: 
+  twoButton: 0
+  isEndState: 1
+  endsGame: 0
+  nextScenes:
+  - {fileID: 11400000, guid: 96c2efac74597404fb85ef218d5e3c05, type: 2}
+  backdrop: {fileID: 21300000, guid: 48c1e008326a2214994b83d635a99ba8, type: 3}
+  characterSprite: {fileID: 21300000, guid: 5b23d7d943cd0cc4eae93830bff15ded, type: 3}

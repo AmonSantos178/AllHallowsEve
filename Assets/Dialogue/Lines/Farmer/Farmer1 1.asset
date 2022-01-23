@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Farmer1 1
+  m_EditorClassIdentifier: 
+  dialogue: "I\u2019ve already said I don\u2019t want any more visitors, well-wishers,
+    or distant relations!"
+  characterName: Martin Holm
+  optionOne: What about very old friends?
+  optionTwo: 
+  twoButton: 0
+  isEndState: 0
+  endsGame: 0
+  nextScenes:
+  - {fileID: 11400000, guid: 8b1d57bf179e40d4ea83b3de49ebd76c, type: 2}
+  backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
+  characterSprite: {fileID: 0}

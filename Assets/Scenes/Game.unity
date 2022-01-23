@@ -152,7 +152,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158268d24652bdc4da9218d757da13cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLine: {fileID: 11400000, guid: 18713e5f955010f4189f192a50ce9171, type: 2}
+  startingLines:
+  - {fileID: 11400000, guid: 18713e5f955010f4189f192a50ce9171, type: 2}
+  - {fileID: 11400000, guid: c84e80c12f4140a459a42aaf677e6616, type: 2}
+  - {fileID: 11400000, guid: 2e00267a11ef75d40aff352ee2e7bf1d, type: 2}
+  - {fileID: 11400000, guid: 9833dc7f7efdc2c4a868fefa57578763, type: 2}
+  - {fileID: 11400000, guid: 9d2a77d5d1e81144bb0b95469df208ac, type: 2}
+  - {fileID: 11400000, guid: ec34524f9eb23f34fbcbeb70fa484f68, type: 2}
+  - {fileID: 11400000, guid: b4df300166a4fe843becd263770db3f4, type: 2}
+  - {fileID: 11400000, guid: f9cbe627f22c5b640b1b00c29dabfd60, type: 2}
+  - {fileID: 11400000, guid: 56255269b4931c4468297fbe2bf867e1, type: 2}
+  - {fileID: 11400000, guid: c2e11a9168adf454a97dc5438d6f2d64, type: 2}
+  - {fileID: 11400000, guid: dea909311860cd3468fe56bedd9e4c30, type: 2}
+  - {fileID: 11400000, guid: 496b33ed49ad68b4c9dd8ad738cabe7f, type: 2}
+  - {fileID: 11400000, guid: 0b011a44dc63e2f48bb56887401fe574, type: 2}
+  - {fileID: 11400000, guid: 286819374996fdf49a1802ee4e759e71, type: 2}
+  - {fileID: 11400000, guid: 96c2efac74597404fb85ef218d5e3c05, type: 2}
+  - {fileID: 11400000, guid: 4b887a8cfc71ec9408e03d1cf6a523b5, type: 2}
+  - {fileID: 11400000, guid: 9cde3ed2b073bc44ab6b8746ab2394ec, type: 2}
+  - {fileID: 11400000, guid: ceec80d08ef6c1343a77d07569373704, type: 2}
+  - {fileID: 11400000, guid: c0508f65b6d706941b238a276d50fe20, type: 2}
+  - {fileID: 11400000, guid: 0206e1abb467f7745a45d507aec6f33a, type: 2}
+  - {fileID: 11400000, guid: f25fe45b1609c4a42bce571391fd8ebb, type: 2}
+  - {fileID: 11400000, guid: 6d1115c3cf1c82847b85ba4740bf12ca, type: 2}
+  - {fileID: 11400000, guid: 5d57f115e75c8f54b916360e862d3b08, type: 2}
+  - {fileID: 11400000, guid: 927d54d3a3e24b24588f3552b7bdb0b6, type: 2}
+  - {fileID: 11400000, guid: 4a13aa1ff14201840819a98ce504769d, type: 2}
+  - {fileID: 11400000, guid: e8211513850c16e40a539f62b48d1fa5, type: 2}
+  - {fileID: 11400000, guid: 4b944e327b46c5445b0796d9820965d5, type: 2}
   backdrop: {fileID: 1540099452}
   characterSprite: {fileID: 1229610128}
   charLine: {fileID: 875877379}
@@ -3077,9 +3104,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Assistant! Halloween is upon us, and I need you to run some errands for
-    the party tonight. I may have forgotten to organize it during the week, so you
-    have until 6:00 pm tonight to take care of everything.
+  m_Text: "Willie\u2019s fine, Straw Hat. Go back to Wano, there\u2019s still a lot
+    to do there. Making a delivery, bringin' it cross the sea\u2026 Binks sake in
+    the hold as we sail through the breeze\u2026 Bid adieu to everyone, as we sail
+    under the sun\u2026 Sailin' on from dusk \u2018til dawn and singin' out as one!"
 --- !u!222 &875877380
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4164,8 +4192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 487.9912, y: 93.99014}
-  m_SizeDelta: {x: 862.9776, y: 862.9812}
+  m_AnchoredPosition: {x: 500, y: 75}
+  m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229610128
 MonoBehaviour:
@@ -4187,7 +4215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb60180250129c14db5520b998540413, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89701855c37bcad4087828928fc99f73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5345,14 +5373,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.89411765, g: 1, b: 0.8862745, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f931e03f89076974fba9b67a9bf00fb9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76c7ceb1fbb457e47a7866e8712dc51d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6058,7 +6086,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option One
+  m_Text: I'd like to hire you tonight
 --- !u!222 &1748363521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6534,14 +6562,14 @@ MonoBehaviour:
   m_Text: 'Party To-Do List
 
 
-    - Hire Bard
-
-
     - Get Sweets (2x)
 
 
-    - Buy
-    Decorations
+    - Buy Decorations
+
+
+    -
+    Hire Bard
 
 
     - Find a Costume'

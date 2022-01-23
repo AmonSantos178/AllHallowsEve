@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Gravedigger2 1
+  m_EditorClassIdentifier: 
+  dialogue: "Nice, you got the candles. You\u2019re a good kid. Here, have some coins
+    for your troubles. If you need anything, I\u2019m usually digging graves at night.
+    Swing by anytime."
+  characterName: Dermot Power
+  optionOne: Will do.
+  optionTwo: 
+  twoButton: 0
+  isEndState: 1
+  endsGame: 0
+  nextScenes: []
+  backdrop: {fileID: 21300000, guid: 76c7ceb1fbb457e47a7866e8712dc51d, type: 3}
+  characterSprite: {fileID: 21300000, guid: 9615f5c0d06233e4fa6fa71c5f6bf96f, type: 3}

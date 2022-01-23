@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Bard1 2
+  m_EditorClassIdentifier: 
+  dialogue: 'You require my melody, for an event tonight.
+
+    About that we shall
+    see, in this evening of fright.
+
+    Bring me a lily, or all your gold will
+    suffice.
+
+'
+  characterName: Tim Jackson
+  optionOne: I'll come back later
+  optionTwo: Take my gold
+  itemName: 
+  twoButton: 1
+  isEndState: 0
+  endsGame: 0
+  isStore: 0
+  itemChange: 0
+  nextScenes:
+  - {fileID: 11400000, guid: 2dde68642a648114fb98a8105bf555ee, type: 2}
+  - {fileID: 11400000, guid: 73da8654e2279df47844fd6fc74141a7, type: 2}
+  backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
+  characterSprite: {fileID: 21300000, guid: 8aa7fe5598000d64e8d4a713c3575c60, type: 3}

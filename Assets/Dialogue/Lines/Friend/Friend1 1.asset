@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Friend1 1
+  m_EditorClassIdentifier: 
+  dialogue: "Hey, dude! Good to see you. Listen, there\u2019s going to be some nice
+    ladies at the party tonight, and I was hoping to impress some of them with a
+    costume. Could you hook me up? I\u2019ll pay you back later."
+  characterName: Sam Astin
+  optionOne: I'll try, man.
+  optionTwo: 
+  itemName: 
+  twoButton: 0
+  isEndState: 1
+  endsGame: 0
+  isStore: 0
+  itemChange: 0
+  nextScenes: []
+  backdrop: {fileID: 21300000, guid: 76c7ceb1fbb457e47a7866e8712dc51d, type: 3}
+  characterSprite: {fileID: 21300000, guid: 05b390ae40bf87749ad6efb3640ff0c0, type: 3}

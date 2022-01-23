@@ -7,9 +7,13 @@ public class DialogueLine : ScriptableObject
     [SerializeField] string characterName;
     [SerializeField] string optionOne;
     [SerializeField] string optionTwo;
+    [SerializeField] string itemName;
 
     public bool twoButton = false;
     public bool isEndState = false;
+    public bool endsGame = false;
+    public bool isStore = false;
+    public bool itemChange = false;
 
     [SerializeField] DialogueLine[] nextScenes;
     [SerializeField] Sprite backdrop;

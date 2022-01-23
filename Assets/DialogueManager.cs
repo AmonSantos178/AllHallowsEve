@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] DialogueLine startingLine;
+    [SerializeField] DialogueLine[] startingLines;
 
     [SerializeField] Image backdrop;
     [SerializeField] Image characterSprite;
@@ -23,8 +24,7 @@ public class DialogueManager : MonoBehaviour
     DialogueLine currentLine;
     void Start()
     {
-        currentLine = startingLine;
-        ManageScene();
+        SetUpDialogue("Mayor1");
     }
 
     private void ManageScene()
@@ -43,40 +43,89 @@ public class DialogueManager : MonoBehaviour
         }
         else buttonTwo.SetActive(true);
     }
-
-    public void PanelOn(bool on)
+    public void SetUpDialogue(string identifier)
     {
-        panel.SetActive(on);
+        panel.SetActive(true);
+        Time.timeScale = 0f;
+        currentLine = GetStartingLine(identifier);
+        ManageScene();
     }
 
-    void StartingStates(string identifier)
+    DialogueLine GetStartingLine(string identifier)
     {
-        switch(identifier)
+        switch (identifier)
         {
-            default: return;
+            case "Mayor1": return startingLines[0];
+            case "Mayor2": return startingLines[1];
+            case "Mayor3": return startingLines[2];
+            case "Mayor4": return startingLines[3];
+            case "Bard1": return startingLines[4];
+            case "Bard2": return startingLines[5];
+            case "Candy1": return startingLines[6];
+            case "Decor1": return startingLines[7];
+            case "Food1": return startingLines[8];
+            case "Costum1": return startingLines[9];
+            case "Emily1": return startingLines[10];
+            case "Emily2": return startingLines[11];
+            case "Farmer1": return startingLines[12];
+            case "Fish1": return startingLines[13];
+            case "Fish2": return startingLines[14];
+            case "Fish3": return startingLines[15];
+            case "Friend1": return startingLines[16];
+            case "Friend2": return startingLines[17];
+            case "Grave1": return startingLines[18];
+            case "Grave2": return startingLines[19];
+            case "Grave3": return startingLines[20];
+            case "Mom1": return startingLines[21];
+            case "Mom2": return startingLines[22];
+            case "Willie1": return startingLines[23];
+            case "Willie2": return startingLines[24];
+            case "Willie3": return startingLines[25];
+            case "Stan1": return startingLines[26];
+            default: return startingLines[0];
         }
     }
 
     #region Button Management
     public void PressButtonOne()
     {
-        if (currentLine.isEndState)
+        if (currentLine.isStore)
         {
-            PanelOn(false);
+            /*open sell menu*/
         }
         else
         {
-            var nextScene = currentLine.GetNextLines();
-            currentLine = nextScene[0];
-            ManageScene();
+            if (currentLine.endsGame)
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(0);
+            }
+            else if (currentLine.isEndState)
+            {
+                Time.timeScale = 1f;
+                panel.SetActive(false);
+            }
+            else
+            {
+                var nextScene = currentLine.GetNextLines();
+                currentLine = nextScene[0];
+                ManageScene();
+            }
         }
     }
 
     public void PressButtonTwo()
     {
-        var nextScene = currentLine.GetNextLines();
-        currentLine = nextScene[1];
-        ManageScene();
+        if (currentLine.isStore)
+        {
+            /*open buy menu*/
+        }
+        else
+        {
+            var nextScene = currentLine.GetNextLines();
+            currentLine = nextScene[1];
+            ManageScene();
+        }
     }
     #endregion
 }

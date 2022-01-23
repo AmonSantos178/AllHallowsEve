@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
+  m_Name: Emily2 2
+  m_EditorClassIdentifier: 
+  dialogue: "It\u2019s Stan again, right? I love it. He always knows what to give
+    me. He\u2019s such a great guy\u2026 But don\u2019t tell him I told you this.
+    In fact, don\u2019t tell him anything at all. Anyway, I gotta go. Catch you later!"
+  characterName: Emily Tesker
+  optionOne: Sure thing.
+  optionTwo: 
+  twoButton: 0
+  isEndState: 1
+  endsGame: 0
+  nextScenes: []
+  backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
+  characterSprite: {fileID: 21300000, guid: eb60180250129c14db5520b998540413, type: 3}

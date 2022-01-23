@@ -9,6 +9,7 @@ public class InfoBoxManager : MonoBehaviour
     float interactionDistance = 10f;
     InteractionManager im;
     PlayerController pc;
+    DialogueManager dm;
     [SerializeField] GameObject fisherman;
 
     void Start()
@@ -17,6 +18,7 @@ public class InfoBoxManager : MonoBehaviour
         list.gameObject.SetActive(false);
         im = FindObjectOfType<InteractionManager>();
         pc = FindObjectOfType<PlayerController>();
+        dm = FindObjectOfType<DialogueManager>();
     }
 
     void Update()
@@ -134,18 +136,19 @@ public class InfoBoxManager : MonoBehaviour
                 {
                     infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gift worked..."; return;
                 }
+                else if (im.hasGifts)
+                {
+                    im.hasGifts = false;
+                    /*dialogue*/
+                    return;
+                }
                 else if (im.emilyQuest)
                 {
-                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gift worked..."; return;
+                    infoBarText.text = "Emily isn't answering the door. Maybe she's not home."; return;
                 }
                 else if (im.hasLunch)
                 {
                     infoBarText.text = "I should deliver her father's lunch before I talk to Emily Again"; return;
-                }
-                else if (im.hasGifts)
-                {
-                    im.hasGifts = false;
-                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gift worked..."; return;
                 }
                 else return;
             case "Hobbit":
@@ -167,12 +170,14 @@ public class InfoBoxManager : MonoBehaviour
             case "Decor": return;
             case "Fisherman":
                 if (pc.CheckTag() == "C5")
-                {
+                { 
+                    /*dialogue*/
                     Destroy(fisherman.gameObject);
                     return;
                 }
                 else if (im.hasLunch)
                 {
+                    /*dialogue*/
                     im.emilyQuest = true;
                     return;
                 }
@@ -232,6 +237,7 @@ public class InfoBoxManager : MonoBehaviour
             case "Stan":
                 if (im.stanQuest)
                 {
+                    infoBarText.text = "Guess he went after Emily. Maybe this time things will work out between them.";
                     return;
                 }
                 else if (im.hasGifts)
