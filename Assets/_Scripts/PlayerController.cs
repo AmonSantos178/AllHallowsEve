@@ -8,14 +8,18 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     SpriteRenderer renderer;
+    [SerializeField] GameObject[] costumes;
+    int i;
 
     #endregion
 
     void Start()
     {
+        i = 0;
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
+        SetAnimatorActive(-1);
     }
 
     void Update()
@@ -50,5 +54,25 @@ public class PlayerController : MonoBehaviour
         }
 
         renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
+    }
+
+    public void SetAnimatorActive(int index)
+    {
+        Debug.Log("aa");
+        i = 0;
+        foreach (GameObject go in costumes)
+        {
+            if (i == index + 1)
+            {
+                go.SetActive(true);
+            }
+            else
+            {
+                go.SetActive(false);
+            }
+            i++;
+        }
+        anim = GetComponentInChildren<Animator>();
+        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 }
