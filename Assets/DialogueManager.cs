@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,11 +19,15 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] GameObject panel;
 
+    [SerializeField] Animator anim;
+
 
     DialogueLine currentLine;
     void Start()
     {
-        SetUpDialogue("Mayor1");
+        panel.SetActive(true);
+        currentLine = GetStartingLine("Mayor1");
+        ManageScene();
     }
 
     private void ManageScene()
@@ -43,12 +48,32 @@ public class DialogueManager : MonoBehaviour
     }
     public void SetUpDialogue(string identifier)
     {
+        anim.SetTrigger("Transition");
+        StartCoroutine(TurnPanelOn(identifier));
+        StartCoroutine(TransitionEntry());
+    }
+    IEnumerator TurnPanelOn(string identifier)
+    {
+        yield return new WaitForSeconds(1.5f);
         panel.SetActive(true);
-        Time.timeScale = 0f;
         currentLine = GetStartingLine(identifier);
         ManageScene();
     }
 
+    IEnumerator TransitionExit()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1.45f);
+        panel.SetActive(false);
+    }
+
+    IEnumerator TransitionEntry()
+    {
+        yield return new WaitForSeconds(1.45f);
+        panel.SetActive(true);
+        yield return new WaitForSeconds(1.55f);
+        Time.timeScale = 0;
+    }
     DialogueLine GetStartingLine(string identifier)
     {
         switch (identifier)
@@ -99,7 +124,8 @@ public class DialogueManager : MonoBehaviour
         else if (currentLine.isEndState)
         {
             Time.timeScale = 1f;
-            panel.SetActive(false);
+            anim.SetTrigger("Transition");
+            StartCoroutine(TransitionExit());
         }
         else
         {

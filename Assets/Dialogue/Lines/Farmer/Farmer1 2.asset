@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Farmer1 2
   m_EditorClassIdentifier: 
   dialogue: Gandalf? Dear Gandalf! It is so good to see you again! I'll be departing
-    soon, due east. We'll meet again in the city of rivers. i must prepare now for
+    soon, due east. We'll meet again in the city of rivers. I must prepare now for
     the long journey. Fare thee well, old friend!
   characterName: Martin Holm
   optionOne: We'll meet again.
   optionTwo: 
+  itemName: 
   twoButton: 0
   isEndState: 1
   endsGame: 0
+  isStore: 0
+  itemChange: 0
   nextScenes: []
   backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
   characterSprite: {fileID: 21300000, guid: 8f074d9b3efa17440ab77b307372aaaf, type: 3}

@@ -172,7 +172,7 @@ public class InfoBoxManager : MonoBehaviour
             case "Fisherman":
                 if (pc.CheckTag() == "C5")
                 { 
-                    Destroy(fisherman.gameObject, 3f);
+                    Destroy(fisherman.gameObject, 1.4f);
                     dm.SetUpDialogue("Fish3"); return;
                 }
                 else if (im.hasLunch)
@@ -235,17 +235,23 @@ public class InfoBoxManager : MonoBehaviour
                 else dm.SetUpDialogue("Friend1"); return;
 
             case "Stan":
-                if (im.stanQuest)
-                {
-                    infoBarText.text = "Guess he went after Emily. Maybe this time things will work out between them.";
-                    return;
-                }
-                else if (im.hasGifts)
+                if (im.hasGifts)
                 {
                     infoBarText.text = "I should deliver the gifts before I talk to Stan again.";
                     return;
                 }
-                else dm.SetUpDialogue("Stan1"); return;
+
+                else if (im.stanQuest)
+                {
+                    infoBarText.text = "Guess he went after Emily. Maybe this time things will work out between them.";
+                    return;
+                }
+
+                else
+                {
+                    im.stanQuest = true;
+                    dm.SetUpDialogue("Stan1"); return;
+                }
             case "Willy":
                 if (im.cheeredWillie)
                 {
