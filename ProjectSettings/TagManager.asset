@@ -22,6 +22,12 @@ TagManager:
   - Empty
   - Farm
   - Graveyard
+  - Base
+  - C1
+  - C2
+  - C3
+  - C4
+  - C5
   layers:
   - Default
   - TransparentFX

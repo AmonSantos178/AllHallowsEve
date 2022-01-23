@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
-        SetAnimatorActive(-1);
+        GG(0);
     }
 
     void Update()
@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour
         renderer.sortingOrder = (int)(renderer.transform.position.y * -100);
     }
 
-    public void SetAnimatorActive(int index)
+    public void GG(int index)
     {
-        Debug.Log("aa");
+        //costumes = costumeArray;
         i = 0;
         foreach (GameObject go in costumes)
         {
-            if (i == index + 1)
+            if (i == index)
             {
                 go.SetActive(true);
             }
@@ -74,5 +74,19 @@ public class PlayerController : MonoBehaviour
         }
         anim = GetComponentInChildren<Animator>();
         renderer = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    public void SetAnimatorActive(string tag)
+    {
+        switch (tag)
+        {
+            case "Base": costumes[0].SetActive(true); GG(0); return;
+            case "C1": costumes[1].SetActive(true); GG(1); return;
+            case "C2": costumes[2].SetActive(true); GG(2); return;
+            case "C3": costumes[3].SetActive(true); GG(3); return;
+            case "C4": costumes[4].SetActive(true); GG(4); return;
+            case "C5": costumes[5].SetActive(true); GG(5); return;
+            default: costumes[0].SetActive(true); GG(0); return;
+        }
     }
 }

@@ -66,13 +66,15 @@ public class CostumeManager : MonoBehaviour
             previousCostume = equippedCostume;
             equippedCostume = costumes[index];
             costumes[index] = previousCostume;
+            costumes[0] = equippedCostume;
             previousCostume.SetActive(false);
             equippedCostume.SetActive(true);
             previousCostumeIcon = currentCostumeIcon;
-            buttonImages = buttons[index].GetComponent<Image>();
+            buttonImages = buttons[index - 1].GetComponent<Image>();
             currentCostumeIcon = buttonImages.sprite;
             buttonImages.sprite = previousCostumeIcon;
-            pc.SetAnimatorActive(index);
+            //pc.GG(costumes,index);
+            pc.SetAnimatorActive(equippedCostume.gameObject.tag);
         }
     }
 
@@ -80,24 +82,24 @@ public class CostumeManager : MonoBehaviour
 
     public void ButtonOne()
     {
-        ButtonBehaviour(0);
+        ButtonBehaviour(1);
     }
 
     public void ButtonTwo()
     {
-        ButtonBehaviour(1);
+        ButtonBehaviour(2);
     }
     public void ButtonThree()
     {
-        ButtonBehaviour(2);
+        ButtonBehaviour(3);
     }
     public void ButtonFour()
     {
-        ButtonBehaviour(3);
+        ButtonBehaviour(4);
     }
     public void ButtonFive()
     {
-        ButtonBehaviour(4);
+        ButtonBehaviour(5);
     }
 
     #endregion
