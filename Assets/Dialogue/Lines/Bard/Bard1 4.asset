@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
   m_Name: Bard1 4
   m_EditorClassIdentifier: 
-  dialogue: 'Do return, and bring my flower.
+  dialogue: 'Do return, and bring me my flower.
 
-    Soon enough you will learn, how
-    this life can be sour!
+    Soon enough you will learn,
+    how this life can be sour!
 
 '
   characterName: Tim Jackson
   optionOne: Farewell.
   optionTwo: 
   itemName: 
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 0
   isEndState: 1
   endsGame: 0

@@ -8,6 +8,8 @@ public class DialogueLine : ScriptableObject
     [SerializeField] string optionOne;
     [SerializeField] string optionTwo;
     [SerializeField] string itemName;
+    [SerializeField] bool requiresGold;
+    [SerializeField] int goldRequired;
 
     public bool twoButton = false;
     public bool isEndState = false;
@@ -52,6 +54,16 @@ public class DialogueLine : ScriptableObject
     public DialogueLine[] GetNextLines()
     {
         return nextScenes;
+    }
+
+    public bool RequiresGold()
+    {
+        return requiresGold;
+    }
+
+    public int GoldRequired()
+    {
+        return goldRequired;
     }
 
     #endregion

@@ -17,19 +17,21 @@ MonoBehaviour:
     About that we shall
     see, in this evening of fright.
 
-    Bring me a lily, or all your gold will
-    suffice.
+    You shall bring me a lily, or one hundred
+    and fifty gold will suffice!
 
 '
   characterName: Tim Jackson
   optionOne: I'll come back later
   optionTwo: Take my gold
   itemName: Gold
+  requiresGold: 0
+  goldRequired: 150
   twoButton: 1
   isEndState: 0
   endsGame: 0
   isStore: 0
-  itemChange: 1
+  itemChange: 0
   nextScenes:
   - {fileID: 11400000, guid: 2dde68642a648114fb98a8105bf555ee, type: 2}
   - {fileID: 11400000, guid: 73da8654e2279df47844fd6fc74141a7, type: 2}

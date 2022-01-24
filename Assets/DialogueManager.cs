@@ -141,10 +141,18 @@ public class DialogueManager : MonoBehaviour
         {
             /*open buy menu*/
         }
+        if (currentLine.RequiresGold())
+        {
+            /*if(playergold < currentline.GoldRequired())
+            {
+                    currentLine = nextScene[3];
+                    playergold -= GoldRequired();
+            }
+             */
+        }
         if (currentLine.itemChange)
         {
             //costume
-            //gold(bard)
             //gifts
         }
         var nextScene = currentLine.GetNextLines();

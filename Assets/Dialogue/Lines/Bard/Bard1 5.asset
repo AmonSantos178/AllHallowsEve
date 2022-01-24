@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
-  m_Name: Decoration1 2
+  m_Name: Bard1 5
   m_EditorClassIdentifier: 
-  dialogue: Business has been going well, people but a lot of decorations this time
-    of year. I just wish I had time today to do some decorating of my own. I really
-    wanted to make a Jack-o'-lantern this year. Anyway, it's always so great to see
-    you, and do come back!
-  characterName: Rosalyn Perry
-  optionOne: Oh, I will
+  dialogue: 'It appears to me your proposal is poor, and your gold just won''t suffice.
+
+    Return
+    later bearing more, I wish not to ask you twice!'
+  characterName: Tim Jackson
+  optionOne: Farewell.
   optionTwo: 
   itemName: 
   requiresGold: 0
@@ -28,5 +28,5 @@ MonoBehaviour:
   isStore: 0
   itemChange: 0
   nextScenes: []
-  backdrop: {fileID: 21300000, guid: 0c45e92f48d67ae4589566c9056ff6a9, type: 3}
-  characterSprite: {fileID: 21300000, guid: 1f34222155b0f504581dd03f8ed3b968, type: 3}
+  backdrop: {fileID: 21300000, guid: 3ebbda6c586b4f6429aa1f569e1afc30, type: 3}
+  characterSprite: {fileID: 21300000, guid: 8aa7fe5598000d64e8d4a713c3575c60, type: 3}
