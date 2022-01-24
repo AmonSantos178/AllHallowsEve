@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Emily1 1
   m_EditorClassIdentifier: 
   dialogue: "Oh, the mayor\u2019s lackley. Hey, would you mind doing me a favor?
-    Take this bag, It\u2019s my father\u2019s lunch. Can you deliver it to him? He
-    forgot it this morning when he left to work in the pier."
+    Take this bag, it\u2019s my father\u2019s lunch. Can you deliver it to him? He
+    forgot it this morning when he left to work at the pier."
   characterName: Emily Tesker
   optionOne: Wait...
   optionTwo: 

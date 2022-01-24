@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] Animator transitionPanel;
-    public void LoadLevel(int i)
-    {
-        StartCoroutine(Load(i));
-    }
 
     IEnumerator Load(int i)
     {
@@ -18,6 +14,30 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         SceneManager.LoadScene(i);
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(Load(0));
+    }
+
+    public void LoadGame()
+    {
+        StartCoroutine(Load(1));
+    }
+
+    public void CloseGame()
+    {
+        StartCoroutine(CloseThis());
+    }
+
+    IEnumerator CloseThis()
+    {
+        transitionPanel.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.5f);
+        Application.Quit();
 
     }
 }
