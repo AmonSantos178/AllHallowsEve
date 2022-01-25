@@ -15,16 +15,17 @@ MonoBehaviour:
   dialogue: The sweetest candies from all around the province, all in one place!
     Welcome back! What can I do for you today? Looking to buy or sell?
   characterName: Donna Hershell
-  optionOne: Sell
-  optionTwo: Buy
+  optionOne: Trade
+  optionTwo: 
   itemName: 
-  twoButton: 1
+  requiresGold: 0
+  goldRequired: 0
+  twoButton: 0
   isEndState: 0
   endsGame: 0
   isStore: 1
   itemChange: 0
   nextScenes:
-  - {fileID: 11400000, guid: 43bf544f7351b2e4ead483f78b8ecf99, type: 2}
   - {fileID: 11400000, guid: 43bf544f7351b2e4ead483f78b8ecf99, type: 2}
   backdrop: {fileID: 21300000, guid: 0c45e92f48d67ae4589566c9056ff6a9, type: 3}
   characterSprite: {fileID: 21300000, guid: e58b8b799b847be4b856a7114c8f298c, type: 3}

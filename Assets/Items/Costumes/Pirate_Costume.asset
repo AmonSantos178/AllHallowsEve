@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39d4a15d71b8754b8898d06a7f281e0, type: 3}
+  m_Name: Pirate_Costume
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 98716a4a015ca9d4783e9eace3307c05, type: 3}
+  itemName: Pirate Costume
+  costumeIndex: 1
+  itemType: 3
+  buyPrice: 60
+  sellPrice: 20
+  isAdmissible: 1
+  isEquiped: 0

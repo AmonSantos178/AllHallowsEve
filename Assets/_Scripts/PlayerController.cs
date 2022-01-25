@@ -4,13 +4,14 @@ public class PlayerController : MonoBehaviour
 {
     //Hello! If you're reading this, I'd like to thank you and everyone over at LSW for the amazing opportunity! :)
     #region Variables
-    float speed = 15f;
+    float speed = 10f;
     Animator anim;
     Rigidbody2D rb;
     SpriteRenderer rndr;
     [SerializeField] GameObject[] costumes;
+    Vector2 movement;
     int i;
-
+    public bool canMove = true;
     #endregion
 
     void Start()
@@ -24,35 +25,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (canMove)
         {
-            rb.velocity = new Vector3(0, speed, 0);
-            anim.SetInteger("Direction", 2);
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rb.velocity = new Vector3(0, -speed, 0);
-            anim.SetInteger("Direction", 1);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rb.velocity = new Vector3(speed, 0, 0);
-            anim.SetInteger("Direction", 3);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            rb.velocity = new Vector3(-speed, 0);
-            anim.SetInteger("Direction", 4);
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            {
+                movement.y = 0;
+            }
+            else
+            {
+                movement.x = 0;
+            }
 
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+            anim.SetFloat("Speed", movement.sqrMagnitude);
         }
-        else
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            anim.SetInteger("Direction", 0);
-        }
-
         rndr.sortingOrder = (int)(rndr.transform.position.y * -100);
+    }
+
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement.normalized * speed * Time.fixedDeltaTime);
     }
 
     void SetAnimatorActive(int index)
@@ -74,22 +71,25 @@ public class PlayerController : MonoBehaviour
         rndr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void ProcessTag(string tag)
+    public void ProcessTag(int tag)
     {
-        switch (tag)
-        {
-            case "Base": costumes[0].SetActive(true); SetAnimatorActive(0); return;
-            case "C1": costumes[1].SetActive(true); SetAnimatorActive(1); return;
-            case "C2": costumes[2].SetActive(true); SetAnimatorActive(2); return;
-            case "C3": costumes[3].SetActive(true); SetAnimatorActive(3); return;
-            case "C4": costumes[4].SetActive(true); SetAnimatorActive(4); return;
-            case "C5": costumes[5].SetActive(true); SetAnimatorActive(5); return;
-            default: costumes[0].SetActive(true); SetAnimatorActive(0); return;
-        }
+        costumes[tag].SetActive(true); SetAnimatorActive(tag);
     }
 
     public string CheckTag()
     {
         return anim.gameObject.tag;
+    }
+    public bool GetWalking()
+    {
+        if (movement.x != 0 || movement.y != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }

@@ -12,19 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
   m_Name: Costume1 1
   m_EditorClassIdentifier: 
-  dialogue: "Oh, if it isn\u2019t my husband\u2019s servant. What do you want? Are
-    you here to buy, or are you trying to sell?"
+  dialogue: "Oh, if it isn\u2019t my husband\u2019s servant. I heard you needed a
+    costume. To be frank, you need an entire wardrobe readjustment, but I don't care
+    enough to give advice. Are you going to buy something, or just stare at me?"
   characterName: Lady Helen Lindsay
-  optionOne: Sell
-  optionTwo: Buy
+  optionOne: Trade
+  optionTwo: 
   itemName: 
-  twoButton: 1
+  requiresGold: 0
+  goldRequired: 0
+  twoButton: 0
   isEndState: 0
   endsGame: 0
   isStore: 1
   itemChange: 0
   nextScenes:
-  - {fileID: 11400000, guid: bacb6b028338d2c42a54a05c8ac20ffd, type: 2}
   - {fileID: 11400000, guid: bacb6b028338d2c42a54a05c8ac20ffd, type: 2}
   backdrop: {fileID: 21300000, guid: 0c45e92f48d67ae4589566c9056ff6a9, type: 3}
   characterSprite: {fileID: 21300000, guid: 50569b743048f70418da27524a004c53, type: 3}

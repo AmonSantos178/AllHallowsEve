@@ -17,3 +17,4 @@ MonoBehaviour:
   itemType: 1
   buyPrice: 18
   sellPrice: 10
+  isAdmissible: 1

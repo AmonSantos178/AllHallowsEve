@@ -15,16 +15,17 @@ MonoBehaviour:
   dialogue: "Hey, gorgeous. Welcome back to Lady Boyle\u2019s Food Stand. So, what\u2019s
     it going to be today? Are you buying or selling?"
   characterName: Nicole Boyle
-  optionOne: Sell
-  optionTwo: Buy
+  optionOne: Trade
+  optionTwo: 
   itemName: 
-  twoButton: 1
+  requiresGold: 0
+  goldRequired: 0
+  twoButton: 0
   isEndState: 0
   endsGame: 0
   isStore: 1
   itemChange: 0
   nextScenes:
-  - {fileID: 11400000, guid: 41cf99b1a3a13954abd029f439579a13, type: 2}
   - {fileID: 11400000, guid: 41cf99b1a3a13954abd029f439579a13, type: 2}
   backdrop: {fileID: 21300000, guid: 0c45e92f48d67ae4589566c9056ff6a9, type: 3}
   characterSprite: {fileID: 21300000, guid: 0dfe3a1932558d44bbfa6fd60ed02a79, type: 3}
