@@ -1292,8 +1292,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 970613240}
-        m_TargetAssemblyTypeName: CostumeManager, Assembly-CSharp
+      - m_Target: {fileID: 970613242}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
         m_MethodName: ButtonTwo
         m_Mode: 1
         m_Arguments:
@@ -2700,8 +2700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 970613240}
-        m_TargetAssemblyTypeName: CostumeManager, Assembly-CSharp
+      - m_Target: {fileID: 970613242}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
         m_MethodName: ButtonThree
         m_Mode: 1
         m_Arguments:
@@ -3052,8 +3052,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 970613240}
-        m_TargetAssemblyTypeName: CostumeManager, Assembly-CSharp
+      - m_Target: {fileID: 970613242}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
         m_MethodName: ButtonFour
         m_Mode: 1
         m_Arguments:
@@ -5135,8 +5135,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 970613240}
-        m_TargetAssemblyTypeName: CostumeManager, Assembly-CSharp
+      - m_Target: {fileID: 970613242}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
         m_MethodName: ButtonOne
         m_Mode: 1
         m_Arguments:
@@ -5740,7 +5740,6 @@ GameObject:
   - component: {fileID: 970613237}
   - component: {fileID: 970613238}
   - component: {fileID: 970613239}
-  - component: {fileID: 970613240}
   - component: {fileID: 970613241}
   - component: {fileID: 970613242}
   m_Layer: 0
@@ -5853,33 +5852,6 @@ MonoBehaviour:
   infoBarText: {fileID: 1389879660}
   list: {fileID: 1921316941}
   fisherman: {fileID: 650486010}
---- !u!114 &970613240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970613233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40858fbdeb8794c47a641cae41f070f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infobarText: {fileID: 1389879660}
-  buttons:
-  - {fileID: 891593860}
-  - {fileID: 298371636}
-  - {fileID: 493050199}
-  - {fileID: 532021491}
-  - {fileID: 1311591599}
-  costumes:
-  - {fileID: 1246220575}
-  - {fileID: 1612703907}
-  - {fileID: 262244005}
-  - {fileID: 425713082}
-  - {fileID: 1708360103}
-  - {fileID: 1437032140}
-  startingCostume: {fileID: 11400000, guid: ab9103ed1680ee14cbefa39ee49a8ab6, type: 2}
 --- !u!114 &970613241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5938,7 +5910,16 @@ MonoBehaviour:
   goldText2: {fileID: 301087715}
   startingGold: 150
   playerItems: []
-  ownedCostumes: []
+  playerCostumes: []
+  infobarText: {fileID: 1389879660}
+  costumeButtons:
+  - {fileID: 891593860}
+  - {fileID: 298371636}
+  - {fileID: 493050199}
+  - {fileID: 532021491}
+  - {fileID: 1311591599}
+  costumes: []
+  startingCostume: {fileID: 11400000, guid: ab9103ed1680ee14cbefa39ee49a8ab6, type: 2}
 --- !u!1 &974559083
 GameObject:
   m_ObjectHideFlags: 0
@@ -7551,8 +7532,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 970613240}
-        m_TargetAssemblyTypeName: CostumeManager, Assembly-CSharp
+      - m_Target: {fileID: 970613242}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
         m_MethodName: ButtonFive
         m_Mode: 1
         m_Arguments:

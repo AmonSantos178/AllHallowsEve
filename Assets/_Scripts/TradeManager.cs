@@ -63,9 +63,9 @@ public class TradeManager : MonoBehaviour
             tradeChat.text = "I will buy...";
             if (currentTradingPartner == clothesShop)
             {
-                displayItems = pi.ownedCostumes;
+                displayItems = pi.playerCostumes;
                 List<Item> itemsWithThisTag = new List<Item>();
-                foreach (Item item in pi.ownedCostumes)
+                foreach (Item item in pi.playerCostumes)
                 {
                     if (item.IsAdmissible())
                     {
@@ -155,8 +155,7 @@ public class TradeManager : MonoBehaviour
                 pi.ChangePlayerGold(-displayItems[index].GetBuyPrice());
                 if (currentTradingPartner == clothesShop)
                 {
-                    //should be costume manager
-                    pi.ownedCostumes.Add(displayItems[index]);
+                    pi.playerCostumes.Add(displayItems[index]);
                 }
                 else
                 {
@@ -176,7 +175,7 @@ public class TradeManager : MonoBehaviour
             currentTradingPartner.inventory.Add(displayItems[index]);
             if (currentTradingPartner == clothesShop)
             {
-                pi.ownedCostumes.Remove(displayItems[index]);
+                pi.playerCostumes.Remove(displayItems[index]);
             }
             else
             {
