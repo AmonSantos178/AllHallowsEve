@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] Image[] inventorySlotImages;
+    [SerializeField] Sprite emptySlotImage;
     [SerializeField] Text goldText;
     [SerializeField] Text goldText2;
     [SerializeField] int startingGold;
@@ -22,6 +23,11 @@ public class PlayerInventory : MonoBehaviour
         ownedCostumes = cm.GetPlayerCostumes();
     }
 
+    private void Update()
+    {
+        UpdateInventoryImages();
+    }
+
     public int GetPlayerGold()
     {
         return playerGold;
@@ -37,60 +43,17 @@ public class PlayerInventory : MonoBehaviour
     public void UpdateInventoryImages()
     {
         int i = 0;
-        foreach(Item item in playerItems)
+        foreach(Image slot in inventorySlotImages)
         {
-            inventorySlotImages[i].sprite = item.GetIcon();
-        }
-    }
-
-    public void AddItem(Item item)
-    {
-        //int position = playerItems.Length;
-        //playerItems[position] = item;
-        playerItems.Add(item);
-        //UpdateInventoryImages();
-    }
-
-    /*public void RemoveItem(Item item)
-    {
-        int i = 0;
-        int position = System.Array.IndexOf(playerItems, item);
-        foreach(Item it in playerItems)
-        {
-            if (i <= position) return;
-            else playerItems[i - 1] = it;
+            if (i < playerItems.Count)
+            {
+                inventorySlotImages[i].sprite = playerItems[i].GetIcon();
+            }
+            else
+            {
+                inventorySlotImages[i].sprite = emptySlotImage;
+            }
             i++;
         }
-        UpdateInventoryImages();
-    }*/
-
-    //public void AddCostume(Item item)
-    //{
-    //    cm.AddCostume(item);
-    //    int position = ownedCostumes.Count;
-    //    ownedCostumes[position] = item;
-    //}
-
-    /*public void RemoveCostume(Item item)
-    {
-        cm.RemoveCostume(item);
-        int i = 0;
-        int position = System.Array.IndexOf(ownedCostumes, item);
-        foreach (Item it in ownedCostumes)
-        {
-            if (i <= position) return;
-            else ownedCostumes[i - 1] = it;
-            i++;
-        }
-    }*/
-
-    public List<Item> GetPlayerInventory()
-    {
-        return playerItems;
-    }
-
-    public List<Item> GetPlayerCostumes()
-    {
-        return ownedCostumes;
     }
 }

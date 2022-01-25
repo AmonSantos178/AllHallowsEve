@@ -179,7 +179,7 @@ public class InfoBoxManager : MonoBehaviour
             case "Decor": dm.SetUpDialogue("Decor1"); return;
             case "Fisherman":
                 if (pc.CheckTag() == "C5")
-                { 
+                {
                     Destroy(fisherman.gameObject, 1.4f);
                     dm.SetUpDialogue("Fish3"); return;
                 }
@@ -189,7 +189,7 @@ public class InfoBoxManager : MonoBehaviour
                     dm.SetUpDialogue("Fish2"); return;
                 }
                 else dm.SetUpDialogue("Fish1"); return;
-                case "Food": dm.SetUpDialogue("Food1"); return; 
+            case "Food": dm.SetUpDialogue("Food1"); return;
             case "Mayor": infoBarText.text = "No one answered the door. They seem to be both at work."; return;
             case "Grave":
                 if (im.scaredDermot)

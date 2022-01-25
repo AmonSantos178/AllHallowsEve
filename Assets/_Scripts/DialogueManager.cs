@@ -188,7 +188,7 @@ public class DialogueManager : MonoBehaviour
     {
         buttonOne.SetActive(false);
         buttonTwo.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         buttonOne.SetActive(true);
         if (currentLine.twoButton)
         {
