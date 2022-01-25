@@ -10,12 +10,14 @@ public class ClockManager : MonoBehaviour
     [SerializeField] float currentTime;
     public bool running = true;
     DialogueManager dm;
+    AudioSource ads;
     bool lostGame;
 
     private void Start()
     {
         lostGame = false;
         dm = FindObjectOfType<DialogueManager>();
+        ads = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -23,8 +25,11 @@ public class ClockManager : MonoBehaviour
         if (running)
         {
             currentTime += Time.deltaTime / 2f;
-
             DisplayTime(currentTime);
+            if (currentTime % 60 < 0.01)
+            {
+                ads.Play();
+            }
         }
 
         if(currentTime >= 1080 && !lostGame)
