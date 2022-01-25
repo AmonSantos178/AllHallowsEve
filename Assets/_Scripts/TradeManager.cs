@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class TradeManager : MonoBehaviour
 {
+    #region Variables
     bool selling;
     [SerializeField] NpcInventory clothesShop;
     [SerializeField] NpcInventory foodShop;
@@ -25,6 +26,7 @@ public class TradeManager : MonoBehaviour
     PlayerInventory pi;
     DialogueManager dm;
     int i;
+    #endregion
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class TradeManager : MonoBehaviour
         i = 0;
     }
 
+    #region Shop Management
     public void SetUpShop()
     {
         panel.SetActive(true);
@@ -130,7 +133,9 @@ public class TradeManager : MonoBehaviour
             default: currentTradingPartner = null; break;
         }
     }
+    #endregion
 
+    #region Button Management
     public void ModeButton()
     {
         selling = !selling;
@@ -142,6 +147,27 @@ public class TradeManager : MonoBehaviour
         selling = false;
         panel.SetActive(false);
         dm.ActivateButtonOne();
+    }
+
+    public void TradeButtonOne()
+    {
+        TradeButtonFunction(0);
+    }
+    public void TradeButtonTwo()
+    {
+        TradeButtonFunction(1);
+    }
+    public void TradeButtonThree()
+    {
+        TradeButtonFunction(2);
+    }
+    public void TradeButtonFour()
+    {
+        TradeButtonFunction(3);
+    }
+    public void TradeButtonFive()
+    {
+        TradeButtonFunction(4);
     }
 
     void TradeButtonFunction(int index)
@@ -190,27 +216,6 @@ public class TradeManager : MonoBehaviour
             }
         }
         SetUpShop();
-    }
-    #region Buttons
-    public void TradeButtonOne()
-    {
-        TradeButtonFunction(0);
-    }
-    public void TradeButtonTwo()
-    {
-        TradeButtonFunction(1);
-    }
-    public void TradeButtonThree()
-    {
-        TradeButtonFunction(2);
-    }
-    public void TradeButtonFour()
-    {
-        TradeButtonFunction(3);
-    }
-    public void TradeButtonFive()
-    {
-        TradeButtonFunction(4);
     }
     #endregion
 }

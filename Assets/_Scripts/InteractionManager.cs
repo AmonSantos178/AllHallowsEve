@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
+    #region Variables
     public Item[] relevantItems;
 
     public bool scaredDermot;
@@ -31,6 +32,7 @@ public class InteractionManager : MonoBehaviour
 
     PlayerInventory pi;
     string currentNameCheck;
+    #endregion
 
     void Start()
     {
@@ -40,49 +42,6 @@ public class InteractionManager : MonoBehaviour
     void Update()
     {
         UpdateBools();
-    }
-
-    public bool GiveState(string tag)
-    {
-        switch (tag)
-        {
-            case "Bard": return hiredBard;
-            case "Hobbit": return cheeredMartin;
-            case "Fisherman": return hasLunch;
-            case "Grave": return scaredDermot;
-            case "Hall": return CheckGameCompletion();
-            case "Mom": return hasEggs;
-            case "Friend": return hasCostume;
-            case "Stan": return hasGifts;
-            case "Willy": return cheeredWillie;
-            default: return false;
-        }
-    }
-
-    public bool CheckGameCompletion()
-    {
-        if (decorations >= 1 && sweets >= 2)
-        {
-            if (hasCostume && hiredBard)
-            {
-                return true;
-            }
-            else return false;
-        }
-        else return false;
-    }
-
-    public bool CheckQuestCompletion(string tag)
-    {
-        switch (tag)
-        {
-            case "Emily": return emilyQuest;
-            case "Grave": return gravediggerQuest;
-            case "Mom": return momQuest;
-            case "Friend": return friendQuest;
-            case "Stan": return stanQuest;
-            default: return false;
-        }
     }
 
     void UpdateBools()
@@ -113,7 +72,33 @@ public class InteractionManager : MonoBehaviour
             hasCostume = false;
         }
     }
+    #region Checks
+    public bool CheckGameCompletion()
+    {
+        if (decorations >= 1 && sweets >= 2)
+        {
+            if (hasCostume && hiredBard)
+            {
+                return true;
+            }
+            else return false;
+        }
+        else return false;
+    }
 
+    public bool CheckQuestCompletion(string tag)
+    {
+        switch (tag)
+        {
+            case "Emily": return emilyQuest;
+            case "Grave": return gravediggerQuest;
+            case "Mom": return momQuest;
+            case "Friend": return friendQuest;
+            case "Stan": return stanQuest;
+            default: return false;
+        }
+    }
+    #endregion
 
     #region FindMethods
     private bool FindItemWithName(Item item)
@@ -161,8 +146,6 @@ public class InteractionManager : MonoBehaviour
             return false;
         }
     }
-    #endregion
-
 
     void GetRelatedVariable(string name)
     {
@@ -177,4 +160,22 @@ public class InteractionManager : MonoBehaviour
             default: break;
         }
     }
+
+    public bool GiveState(string tag)
+    {
+        switch (tag)
+        {
+            case "Bard": return hiredBard;
+            case "Hobbit": return cheeredMartin;
+            case "Fisherman": return hasLunch;
+            case "Grave": return scaredDermot;
+            case "Hall": return CheckGameCompletion();
+            case "Mom": return hasEggs;
+            case "Friend": return hasCostume;
+            case "Stan": return hasGifts;
+            case "Willy": return cheeredWillie;
+            default: return false;
+        }
+    }
+    #endregion
 }

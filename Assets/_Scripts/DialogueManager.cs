@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    #region Variables
     [SerializeField] DialogueLine[] startingLines;
 
     [SerializeField] Image backdrop;
@@ -32,14 +33,17 @@ public class DialogueManager : MonoBehaviour
     InteractionManager im;
     public Item giftOne;
     public Item giftTwo;
+    #endregion
 
     void Start()
     {
+        #region Declaring Objects
         cm = FindObjectOfType<ClockManager>();
         pc = FindObjectOfType<PlayerController>();
         pi = FindObjectOfType<PlayerInventory>();
         tm = FindObjectOfType<TradeManager>();
         im = FindObjectOfType<InteractionManager>();
+        #endregion
         panel.SetActive(true);
         pc.canMove = false;
         cm.running = false;
@@ -63,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TurnPanelOn(identifier));
         StartCoroutine(TransitionEntry());
     }
+    #region Transitions
     IEnumerator TurnPanelOn(string identifier)
     {
         yield return new WaitForSeconds(1.5f);
@@ -90,6 +95,7 @@ public class DialogueManager : MonoBehaviour
         buttonOne.SetActive(true);
         yield return new WaitForSeconds(1.55f);
     }
+    #endregion
     DialogueLine GetStartingLine(string identifier)
     {
         switch (identifier)

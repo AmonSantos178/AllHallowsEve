@@ -16,9 +16,15 @@ MonoBehaviour:
   characterName: Anderson Tesker
   optionOne: I brought your lunch
   optionTwo: 
+  itemName: 
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 0
   isEndState: 0
   endsGame: 0
-  nextScenes: []
-  backdrop: {fileID: 21300000, guid: 48c1e008326a2214994b83d635a99ba8, type: 3}
-  characterSprite: {fileID: 21300000, guid: 5b23d7d943cd0cc4eae93830bff15ded, type: 3}
+  isStore: 0
+  itemChange: 0
+  nextScenes:
+  - {fileID: 11400000, guid: 84691b4fa96a5514f82fc413b671295d, type: 2}
+  backdrop: {fileID: 21300000, guid: 5b23d7d943cd0cc4eae93830bff15ded, type: 3}
+  characterSprite: {fileID: 21300000, guid: 48c1e008326a2214994b83d635a99ba8, type: 3}

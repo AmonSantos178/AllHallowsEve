@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Dialogue Line")]
 public class DialogueLine : ScriptableObject
 {
+    #region Variables
     [TextArea(10, 30)] [SerializeField] string dialogue;
     [SerializeField] string characterName;
     [SerializeField] string optionOne;
@@ -20,6 +21,7 @@ public class DialogueLine : ScriptableObject
     [SerializeField] DialogueLine[] nextScenes;
     [SerializeField] Sprite backdrop;
     [SerializeField] Sprite characterSprite;
+    #endregion
 
     #region Return Methods
     public string GetDialogue()

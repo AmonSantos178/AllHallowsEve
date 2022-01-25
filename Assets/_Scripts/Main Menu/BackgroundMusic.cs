@@ -6,6 +6,7 @@ public class BackgroundMusic : MonoBehaviour
 {
     private void Awake()
     {
+        Screen.SetResolution(1920, 1800, true);
         int musicPlayers = FindObjectsOfType<BackgroundMusic>().Length;
         if (musicPlayers > 1)
         {

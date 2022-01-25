@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InfoBoxManager : MonoBehaviour
 {
+    #region Variables
     [SerializeField] Text infoBarText;
     [SerializeField] Image list;
     float interactionDistance = 10f;
@@ -16,6 +17,7 @@ public class InfoBoxManager : MonoBehaviour
     [SerializeField] Item compass;
 
     bool canInteract;
+    #endregion
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class InfoBoxManager : MonoBehaviour
 
     void Update()
     {
+        #region Raycast Processing
         if (Input.GetMouseButtonDown(0))
         {
             interactionDistance = 10f;
@@ -54,6 +57,7 @@ public class InfoBoxManager : MonoBehaviour
                         canInteract = false;
                         StartCoroutine(AllowInteraction());
                         ProcessInteraction(hit.collider.gameObject.tag);
+                        Debug.Log(hit.collider.gameObject.tag);
                     }
                 }
             }
@@ -81,6 +85,7 @@ public class InfoBoxManager : MonoBehaviour
             }
 
         }
+        #endregion
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -100,6 +105,7 @@ public class InfoBoxManager : MonoBehaviour
         return Vector2.Distance(playerPosition, location);
     }
 
+    #region Tag Processing
     string GetInformation(string tag)
     {
         switch (tag)
@@ -200,7 +206,7 @@ public class InfoBoxManager : MonoBehaviour
                     im.emilyQuest = true;
                     dm.SetUpDialogue("Fish2");
                     pi.playerItems.Remove(im.relevantItems[4]);
-                    pi.ChangePlayerGold(2);
+                    pi.ChangePlayerGold(24);
                     return;
                 }
                 else dm.SetUpDialogue("Fish1"); return;
@@ -312,6 +318,7 @@ public class InfoBoxManager : MonoBehaviour
             default: return;
         }
     }
+    #endregion
     IEnumerator AllowInteraction()
     {
         yield return new WaitForSeconds(2f);

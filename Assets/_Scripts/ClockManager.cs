@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class ClockManager : MonoBehaviour
 {
+    #region Variables
     [SerializeField] Text clockText;
     [SerializeField] float currentTime;
     public bool running = true;
     DialogueManager dm;
     AudioSource ads;
     bool lostGame;
+    #endregion
 
     private void Start()
     {

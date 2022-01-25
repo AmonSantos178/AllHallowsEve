@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
+    #region Variables
     [SerializeField] Image[] inventorySlotImages;
     [SerializeField] Sprite emptySlotImage;
     [SerializeField] Text goldText;
@@ -30,6 +31,7 @@ public class PlayerInventory : MonoBehaviour
     Sprite currentCostumeIcon;
     PlayerController pc;
     bool walking;
+    #endregion
     void Start()
     {
         playerGold = startingGold;
@@ -54,7 +56,7 @@ public class PlayerInventory : MonoBehaviour
         ManageCostumeButtons();
     }
 
-
+    #region Manage Gold
     public int GetPlayerGold()
     {
         return playerGold;
@@ -66,7 +68,9 @@ public class PlayerInventory : MonoBehaviour
         goldText.text = playerGold.ToString();
         goldText2.text = playerGold.ToString();
     }
+    #endregion
 
+    #region Icon Management
     public void UpdateInventoryImages()
     {
         int i = 0;
@@ -102,7 +106,9 @@ public class PlayerInventory : MonoBehaviour
             i++;
         }
     }
+    #endregion
 
+    #region Button Functions
     void ButtonBehaviour(int index)
     {
         walking = pc.GetWalking();
@@ -118,8 +124,6 @@ public class PlayerInventory : MonoBehaviour
             infobarText.text = "I can't change costumes while walking. I'm not that agile.";
         }
     }
-
-    #region Button Functions
 
     public void ButtonOne()
     {

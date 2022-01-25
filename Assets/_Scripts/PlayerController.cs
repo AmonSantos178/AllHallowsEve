@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         costumes[tag].SetActive(true); SetAnimatorActive(tag);
     }
-
+    #region Value Checks
     public string CheckTag()
     {
         return anim.gameObject.tag;
@@ -90,6 +90,6 @@ public class PlayerController : MonoBehaviour
         {
             return false;
         }
-
     }
+    #endregion
 }

@@ -7,15 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] Animator transitionPanel;
 
-    IEnumerator Load(int i)
-    {
-        transitionPanel.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1.5f);
-
-        SceneManager.LoadScene(i);
-    }
-
+    #region Buttons
     public void LoadMenu()
     {
         Time.timeScale = 1f;
@@ -31,6 +23,17 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(CloseThis());
     }
+    #endregion
+
+    #region IEnumerators
+    IEnumerator Load(int i)
+    {
+        transitionPanel.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene(i);
+    }
 
     IEnumerator CloseThis()
     {
@@ -40,4 +43,5 @@ public class LevelLoader : MonoBehaviour
         Application.Quit();
 
     }
+    #endregion
 }

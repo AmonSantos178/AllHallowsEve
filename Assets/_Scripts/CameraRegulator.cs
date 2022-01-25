@@ -4,10 +4,8 @@ using UnityEngine;
 public class CameraRegulator : MonoBehaviour
 {
     [SerializeField] Transform playerLocation;
-    float eastBorder = 60;
-    float westBorder = -60;
-    float southBorder = -69;
-    float northBorder = 69;
+    float xLimit = 60;
+    float yLimit = 69;
     float cameraDistance = -10;
 
     float xPos;
@@ -20,8 +18,8 @@ public class CameraRegulator : MonoBehaviour
 
     void Update()
     {
-        xPos = Mathf.Clamp(playerLocation.position.x, westBorder, eastBorder);
-        yPos = Mathf.Clamp(playerLocation.position.y, southBorder, northBorder);
+        xPos = Mathf.Clamp(playerLocation.position.x, -xLimit, xLimit);
+        yPos = Mathf.Clamp(playerLocation.position.y, -yLimit, yLimit);
 
         transform.position = new Vector3(xPos, yPos, cameraDistance);
     }
