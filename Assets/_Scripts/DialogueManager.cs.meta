@@ -3,7 +3,19 @@ guid: 158268d24652bdc4da9218d757da13cc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - backdrop: {instanceID: 0}
+  - characterSprite: {instanceID: 0}
+  - charLine: {instanceID: 0}
+  - charName: {instanceID: 0}
+  - firstOptionText: {instanceID: 0}
+  - secondOptionText: {instanceID: 0}
+  - buttonOne: {instanceID: 0}
+  - buttonTwo: {instanceID: 0}
+  - panel: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - giftOne: {instanceID: 0}
+  - giftTwo: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

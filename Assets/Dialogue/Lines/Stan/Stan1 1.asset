@@ -19,6 +19,8 @@ MonoBehaviour:
   optionOne: Can't help you, sorry.
   optionTwo: Sure, anything to help.
   itemName: Gifts
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 1
   isEndState: 0
   endsGame: 0

@@ -18,6 +18,8 @@ MonoBehaviour:
   optionOne: Sorry, can't help you.
   optionTwo: Here you go, pick one.
   itemName: Costume
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 1
   isEndState: 0
   endsGame: 0

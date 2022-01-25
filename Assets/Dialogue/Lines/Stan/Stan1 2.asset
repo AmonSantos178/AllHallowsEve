@@ -18,6 +18,8 @@ MonoBehaviour:
   optionOne: Thanks, Mason!
   optionTwo: 
   itemName: 
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 0
   isEndState: 1
   endsGame: 0

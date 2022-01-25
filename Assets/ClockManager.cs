@@ -22,7 +22,7 @@ public class ClockManager : MonoBehaviour
     {
         if (running)
         {
-            currentTime += Time.deltaTime / 2;
+            currentTime += Time.deltaTime / 2f;
 
             DisplayTime(currentTime);
         }

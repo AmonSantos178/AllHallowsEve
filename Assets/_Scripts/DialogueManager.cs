@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +29,9 @@ public class DialogueManager : MonoBehaviour
 
     DialogueLine currentLine;
     TradeManager tm;
+    InteractionManager im;
+    public Item giftOne;
+    public Item giftTwo;
 
     void Start()
     {
@@ -35,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         pc = FindObjectOfType<PlayerController>();
         pi = FindObjectOfType<PlayerInventory>();
         tm = FindObjectOfType<TradeManager>();
+        im = FindObjectOfType<InteractionManager>();
         panel.SetActive(true);
         pc.canMove = false;
         cm.running = false;
@@ -165,18 +170,53 @@ public class DialogueManager : MonoBehaviour
                 pi.ChangePlayerGold(-currentLine.GoldRequired());
                 nextScene = currentLine.GetNextLines();
                 currentLine = nextScene[1];
+                im.hiredBard = true;
             }
         }
         else
         {
             if (currentLine.itemChange)
             {
-                //costume
-                //gifts
+                string npcName = currentLine.GetCharacterName();
+                if (npcName == "Sam Astin")
+                {
+                    if (pi.playerCostumes.Count > 1)
+                    {
+                        List<Item> possibleCostumeChoices = pi.playerCostumes.FindAll(GetUnequippedCostumes);
+                        if (possibleCostumeChoices.Count > 0)
+                        {
+                            pi.playerCostumes.Remove(possibleCostumeChoices[Random.Range(0, possibleCostumeChoices.Count)]);
+                        }
+                        else
+                        {
+                            pi.playerCostumes.Remove(pi.playerCostumes[0]);
+                            pi.equippedCostume = pi.startingCostume;
+                            pc.ProcessTag(pi.equippedCostume.GetCostumeIndex());
+                        }
+                    }
+                }
+                else if (npcName == "Stan Mason")
+                {
+                    pi.ChangePlayerGold(30);
+                    pi.playerItems.Add(giftOne);
+                    pi.playerItems.Add(giftTwo);
+                }
             }
             currentLine = nextScene[1];
         }
         ManageScene();
+    }
+
+    public bool GetUnequippedCostumes(Item item)
+    {
+        if (item.IsAdmissible())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void ActivateButtonOne()

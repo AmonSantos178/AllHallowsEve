@@ -11,7 +11,9 @@ public class InfoBoxManager : MonoBehaviour
     InteractionManager im;
     PlayerController pc;
     DialogueManager dm;
+    PlayerInventory pi;
     [SerializeField] GameObject fisherman;
+    [SerializeField] Item compass;
 
     bool canInteract;
 
@@ -22,6 +24,7 @@ public class InfoBoxManager : MonoBehaviour
         im = FindObjectOfType<InteractionManager>();
         pc = FindObjectOfType<PlayerController>();
         dm = FindObjectOfType<DialogueManager>();
+        pi = FindObjectOfType<PlayerInventory>();
         canInteract = true;
 
     }
@@ -134,22 +137,26 @@ public class InfoBoxManager : MonoBehaviour
                 {
                     infoBarText.text = "Looks like he's already left home to go play at the party. Great, one less worry!"; return;
                 }
-                else if (im.hasFlowers)
+                else if (im.hasLily)
                 {
                     dm.SetUpDialogue("Bard2");
                     im.hiredBard = true;
+                    pi.playerItems.Remove(im.relevantItems[3]);
                     return;
                 }
                 else dm.SetUpDialogue("Bard1"); return;
             case "Tesker":
-                if (im.stanQuest)
-                {
-                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gifts worked..."; return;
-                }
-                else if (im.hasGifts)
+                if (im.hasGifts)
                 {
                     im.hasGifts = false;
-                    dm.SetUpDialogue("Emily2"); return;
+                    dm.SetUpDialogue("Emily2");
+                    pi.playerItems.Remove(dm.giftOne);
+                    pi.playerItems.Remove(dm.giftTwo);
+                    return;
+                }
+                else if (im.stanQuest)
+                {
+                    infoBarText.text = "Emily isn't answering the door. Perhaps Stan's gifts worked..."; return;
                 }
                 else if (im.emilyQuest)
                 {
@@ -159,7 +166,12 @@ public class InfoBoxManager : MonoBehaviour
                 {
                     infoBarText.text = "I should deliver her father's lunch before I talk to Emily Again"; return;
                 }
-                else dm.SetUpDialogue("Emily1"); return;
+                else
+                {
+                    dm.SetUpDialogue("Emily1");
+                    pi.playerItems.Add(im.relevantItems[4]);
+                    return;
+                }
             case "Hobbit":
                 if (im.cheeredMartin)
                 {
@@ -186,7 +198,10 @@ public class InfoBoxManager : MonoBehaviour
                 else if (im.hasLunch)
                 {
                     im.emilyQuest = true;
-                    dm.SetUpDialogue("Fish2"); return;
+                    dm.SetUpDialogue("Fish2");
+                    pi.playerItems.Remove(im.relevantItems[4]);
+                    pi.ChangePlayerGold(2);
+                    return;
                 }
                 else dm.SetUpDialogue("Fish1"); return;
             case "Food": dm.SetUpDialogue("Food1"); return;
@@ -202,14 +217,21 @@ public class InfoBoxManager : MonoBehaviour
                     im.scaredDermot = true;
                     dm.SetUpDialogue("Grave3"); return;
                 }
+                else if (im.gravediggerQuest)
+                {
+                    infoBarText.text = "Looks like he's sleeping. Makes sense, he usually works all night.";
+                    return;
+                }
                 else if (im.hasCandles)
                 {
                     im.gravediggerQuest = true;
-                    dm.SetUpDialogue("Grave2"); return;
+                    dm.SetUpDialogue("Grave2");
+                    pi.playerItems.Remove(im.relevantItems[0]);
+                    pi.ChangePlayerGold(37); return;
                 }
                 else dm.SetUpDialogue("Grave1"); return;
             case "Hall":
-                if (im.CheckGameCompletion() == true)
+                if (im.CheckGameCompletion())
                 {
                     dm.SetUpDialogue("Mayor4"); return;
                 }
@@ -226,7 +248,10 @@ public class InfoBoxManager : MonoBehaviour
                 else if (im.hasEggs)
                 {
                     im.momQuest = true;
-                    dm.SetUpDialogue("Mom2"); return;
+                    dm.SetUpDialogue("Mom2");
+                    pi.playerItems.Remove(im.relevantItems[1]);
+                    pi.ChangePlayerGold(23);
+                    return;
                 }
                 else dm.SetUpDialogue("Mom1"); return;
             case "Friend":
@@ -248,13 +273,11 @@ public class InfoBoxManager : MonoBehaviour
                     infoBarText.text = "I should deliver the gifts before I talk to Stan again.";
                     return;
                 }
-
                 else if (im.stanQuest)
                 {
                     infoBarText.text = "Guess he went after Emily. Maybe this time things will work out between them.";
                     return;
                 }
-
                 else
                 {
                     im.stanQuest = true;
@@ -273,7 +296,11 @@ public class InfoBoxManager : MonoBehaviour
                 }
                 else if (im.hasFishySticks)
                 {
-                    dm.SetUpDialogue("Willie2"); return;
+                    dm.SetUpDialogue("Willie2");
+                    pi.playerItems.Remove(im.relevantItems[2]);
+                    pi.playerItems.Add(compass);
+                    im.cheeredWillie = true;
+                    return;
                 }
                 else dm.SetUpDialogue("Willie1"); return;
 

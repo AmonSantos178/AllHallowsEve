@@ -267,6 +267,8 @@ MonoBehaviour:
   buttonTwo: {fileID: 179103763}
   panel: {fileID: 628126914}
   anim: {fileID: 1021337494}
+  giftOne: {fileID: 11400000, guid: 2cd1d825a1ab35e46828347fd3b846f4, type: 2}
+  giftTwo: {fileID: 11400000, guid: 9d6e2da98f27f574681ebf6a7e7b298a, type: 2}
 --- !u!4 &75519451
 Transform:
   m_ObjectHideFlags: 0
@@ -5757,7 +5759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970613233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.76, y: -19.55, z: 0}
+  m_LocalPosition: {x: -0.65, y: 57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5852,6 +5854,7 @@ MonoBehaviour:
   infoBarText: {fileID: 1389879660}
   list: {fileID: 1921316941}
   fisherman: {fileID: 650486010}
+  compass: {fileID: 11400000, guid: 59019c623a456f345b6b8542205929d6, type: 2}
 --- !u!114 &970613241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5864,11 +5867,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59695a94b504e544aa41e066c65de61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaredTesker: 0
+  relevantItems:
+  - {fileID: 11400000, guid: ce9b6432601e30b488d148c22b1975a3, type: 2}
+  - {fileID: 11400000, guid: d2bc8bb9adf11b84a94b59000886cd61, type: 2}
+  - {fileID: 11400000, guid: 2b3b9c851473d054aa8f3deed77afdf7, type: 2}
+  - {fileID: 11400000, guid: 0e506f8e7a06c7d488063cccf4f37e04, type: 2}
+  - {fileID: 11400000, guid: 9caa2e088d3c1614ba29d30d74a3c061, type: 2}
   scaredDermot: 0
   cheeredWillie: 0
   cheeredMartin: 0
-  hasFlowers: 0
+  hasLily: 0
   hasLunch: 0
   hasCostume: 0
   hasCandles: 0
@@ -5880,8 +5888,8 @@ MonoBehaviour:
   momQuest: 0
   gravediggerQuest: 0
   stanQuest: 0
-  hasDecorations: 0
   hiredBard: 0
+  decorations: 0
   sweets: 0
 --- !u!114 &970613242
 MonoBehaviour:
@@ -5920,6 +5928,7 @@ MonoBehaviour:
   - {fileID: 1311591599}
   costumes: []
   startingCostume: {fileID: 11400000, guid: ab9103ed1680ee14cbefa39ee49a8ab6, type: 2}
+  equippedCostume: {fileID: 0}
 --- !u!1 &974559083
 GameObject:
   m_ObjectHideFlags: 0
@@ -8569,8 +8578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.65374, y: 140.64374}
-  m_SizeDelta: {x: 54.1148, y: 47.5525}
+  m_AnchoredPosition: {x: 69.1, y: 140.64}
+  m_SizeDelta: {x: 60.895, y: 47.5525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431040015
 MonoBehaviour:
@@ -8594,7 +8603,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e994449b63c342546b2149c4531211cd, type: 3}
-    m_FontSize: 38
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -8605,7 +8614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 123
+  m_Text: 586
 --- !u!222 &1431040016
 CanvasRenderer:
   m_ObjectHideFlags: 0

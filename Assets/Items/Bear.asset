@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 5affa06a4d936654fb2524692c4a0672, type: 3}
   itemName: Teddy Bear
+  costumeIndex: 0
   itemType: 2
   buyPrice: 35
   sellPrice: 7
+  isAdmissible: 0
+  isGift: 1
+  isEquiped: 0

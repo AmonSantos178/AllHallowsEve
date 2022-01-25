@@ -63,7 +63,6 @@ public class TradeManager : MonoBehaviour
             tradeChat.text = "I will buy...";
             if (currentTradingPartner == clothesShop)
             {
-                displayItems = pi.playerCostumes;
                 List<Item> itemsWithThisTag = new List<Item>();
                 foreach (Item item in pi.playerCostumes)
                 {
@@ -172,7 +171,15 @@ public class TradeManager : MonoBehaviour
         else
         {
             pi.ChangePlayerGold(displayItems[index].GetSellPrice());
-            currentTradingPartner.inventory.Add(displayItems[index]);
+            if (currentTradingPartner != decorShop)
+            {
+                currentTradingPartner.inventory.Add(displayItems[index]);
+            }
+            else if (displayItems[index].GetName() != "Pumpkin")
+            {
+                currentTradingPartner.inventory.Add(displayItems[index]);
+            }
+
             if (currentTradingPartner == clothesShop)
             {
                 pi.playerCostumes.Remove(displayItems[index]);

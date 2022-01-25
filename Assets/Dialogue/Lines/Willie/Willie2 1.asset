@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21f361f0500fd54fbc15294e233bb52, type: 3}
   m_Name: Willie2 1
   m_EditorClassIdentifier: 
-  dialogue: "Oh, you brought them! Willie\u2019s real happy! Here, kid. Have a Fishy
-    Stick!"
+  dialogue: "Oh, you brought Fishy Sticks! Willie\u2019s real happy! Here, kid. Have
+    a Fishy Stick!"
   characterName: Old Willie
   optionOne: Thanks, Willie. Take care.
   optionTwo: 
+  itemName: 
+  requiresGold: 0
+  goldRequired: 0
   twoButton: 0
   isEndState: 1
   endsGame: 0

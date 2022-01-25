@@ -21,11 +21,11 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] Text infobarText;
     [SerializeField] Button[] costumeButtons;
     [SerializeField] GameObject[] costumes;
-    [SerializeField] Item startingCostume;
+    public Item startingCostume;
     Image costumeButtonImage;
 
 
-    Item equippedCostume;
+    public Item equippedCostume;
     Item previousCostume;
     Sprite currentCostumeIcon;
     PlayerController pc;

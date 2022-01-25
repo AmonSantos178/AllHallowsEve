@@ -16,6 +16,7 @@ public class Item : ScriptableObject
     [SerializeField] int buyPrice;
     [SerializeField] int sellPrice;
     [SerializeField] bool isAdmissible;
+    [SerializeField] bool isGift;
     public bool isEquiped;
     #endregion
     #region Return Methods
@@ -48,10 +49,9 @@ public class Item : ScriptableObject
     {
         return isAdmissible;
     }
-
-    public bool IsEquipped()
+    public bool IsGift()
     {
-        return isEquiped;
+        return isGift;
     }
 
     public int GetCostumeIndex()

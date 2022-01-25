@@ -1,15 +1,16 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    public bool scaredTesker;
+    public Item[] relevantItems;
+
     public bool scaredDermot;
     public bool cheeredWillie;
     public bool cheeredMartin;
 
-    public bool hasFlowers;
+    public bool hasLily;
     public bool hasLunch;
     public bool hasCostume;
     public bool hasCandles;
@@ -23,25 +24,22 @@ public class InteractionManager : MonoBehaviour
     public bool gravediggerQuest;
     public bool stanQuest;
 
-    public bool hasDecorations;
     public bool hiredBard;
 
+    public int decorations;
     public int sweets;
 
-
-    string costume;
-
-    PlayerController pc;
-
+    PlayerInventory pi;
+    string currentNameCheck;
 
     void Start()
     {
-        pc = FindObjectOfType<PlayerController>();
+        pi = FindObjectOfType<PlayerInventory>();
     }
 
     void Update()
     {
-        
+        UpdateBools();
     }
 
     public bool GiveState(string tag)
@@ -51,7 +49,7 @@ public class InteractionManager : MonoBehaviour
             case "Bard": return hiredBard;
             case "Hobbit": return cheeredMartin;
             case "Fisherman": return hasLunch;
-             case "Grave": return scaredDermot;
+            case "Grave": return scaredDermot;
             case "Hall": return CheckGameCompletion();
             case "Mom": return hasEggs;
             case "Friend": return hasCostume;
@@ -63,9 +61,9 @@ public class InteractionManager : MonoBehaviour
 
     public bool CheckGameCompletion()
     {
-        if (hasDecorations && hiredBard)
+        if (decorations >= 1 && sweets >= 2)
         {
-            if (hasCostume && sweets >= 2)
+            if (hasCostume && hiredBard)
             {
                 return true;
             }
@@ -84,6 +82,99 @@ public class InteractionManager : MonoBehaviour
             case "Friend": return friendQuest;
             case "Stan": return stanQuest;
             default: return false;
+        }
+    }
+
+    void UpdateBools()
+    {
+        foreach (Item item in relevantItems)
+        {
+            string itemName = item.GetName();
+            GetRelatedVariable(itemName);
+        }
+
+        sweets = pi.playerItems.FindAll(FindSweets).Count;
+        decorations = pi.playerItems.FindAll(FindDecorations).Count;
+        if(pi.playerItems.FindAll(CountGifts).Count == 2)
+        {
+            hasGifts = true;
+        }
+        else
+        {
+            hasGifts = false;
+        }
+
+        if(pi.playerCostumes.Count > 1)
+        {
+            hasCostume = true;
+        }
+        else
+        {
+            hasCostume = false;
+        }
+    }
+
+
+    #region FindMethods
+    private bool FindItemWithName(Item item)
+    {
+        if(item.GetName() == currentNameCheck)
+        {
+            return true;
+        }
+       else
+        {
+            return false;
+        }
+    }
+
+    private bool FindSweets(Item item)
+    {
+        if (item.GetItemType() == ItemType.Sweet)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private bool CountGifts(Item item)
+    {
+        if (item.IsGift())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private bool FindDecorations(Item item)
+    {
+        if (item.GetItemType() == ItemType.Decor && item.IsAdmissible())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    #endregion
+
+
+    void GetRelatedVariable(string name)
+    {
+        currentNameCheck = name;
+        switch (name)
+        {
+            case "Candle": hasCandles = pi.playerItems.Find(FindItemWithName); break;
+            case "Eggs": hasEggs = pi.playerItems.Find(FindItemWithName); break;
+            case "Fishy Sticks": hasFishySticks = pi.playerItems.Find(FindItemWithName); break;
+            case "Lily": hasLily = pi.playerItems.Find(FindItemWithName); break;
+            case "Mr. Tesker's Lunch": hasLunch = pi.playerItems.Find(FindItemWithName); break;
+            default: break;
         }
     }
 }
